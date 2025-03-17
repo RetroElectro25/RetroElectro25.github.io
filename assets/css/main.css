@@ -2546,3 +2546,7 @@ input, select, textarea {
 	color: #000; /* Ensure text is legible */
   }
   
+  #work .content header h2,
+#work .content header p {
+  color: white !important;
+}
