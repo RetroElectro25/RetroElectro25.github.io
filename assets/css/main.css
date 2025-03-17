@@ -2465,3 +2465,84 @@ input, select, textarea {
         padding: 0.75em 0.5em; /* Further reduced for mobile */
     }
 }
+
+.video-background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	z-index: -1;
+  }
+  
+  .video-background video {
+	min-width: 100%;
+	min-height: 100%;
+	object-fit: cover;
+  }
+  
+/* Ensure Work and Contact sections fill at least the full viewport */
+#work, #contact {
+	position: relative;
+	min-height: 100vh;
+	overflow: hidden;
+  }
+  
+  /* Remove any potential overlay for testing (comment out if needed) */
+  #work::before,
+  #contact::before {
+	content: none;
+  }
+  
+  /* Ensure video background containers fill the section */
+  #work .video-background,
+  #contact .video-background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1; /* behind content */
+  }
+  
+  /* Ensure the video elements cover the container fully */
+  #background-video-work,
+  #background-video-contact {
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+	display: block;
+  }
+
+/* Remove any pseudo-element overlay for the Work and Contact sections */
+#work::before,
+#contact::before {
+  content: none !important;
+  display: none !important;
+}
+
+#work, #contact, .main.style3.secondary {
+	background: transparent !important;
+  }
+
+  /* Make Contact section header text white */
+#contact header {
+	color: white;
+  }
+  
+  /* Style the contact box: slightly transparent white background with rounded corners */
+  #contact .box {
+	background: rgba(255, 255, 255, 0.8) !important; /* 80% opacity */
+	border-radius: 10px; /* Adjust the radius as needed */
+	padding: 2em; /* Adjust padding as needed */
+  }
+  
+  /* Ensure form input fields and textarea remain white */
+  #contact .box input[type="text"],
+  #contact .box input[type="email"],
+  #contact .box textarea {
+	background: #fff !important;
+	color: #000; /* Ensure text is legible */
+  }
+  
