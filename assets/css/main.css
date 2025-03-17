@@ -2454,3 +2454,14 @@ input, select, textarea {
 			}
 
 		}
+
+		/* Reduce text box padding */
+.box.style2 {
+    padding: 1.5em 1em; /* Adjusted for smaller margins */
+}
+
+@media screen and (max-width: 736px) {
+    .box.style2 {
+        padding: 0.75em 0.5em; /* Further reduced for mobile */
+    }
+}
