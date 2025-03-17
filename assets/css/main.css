@@ -2526,27 +2526,32 @@ input, select, textarea {
 	background: transparent !important;
   }
 
-  /* Make Contact section header text white */
-#contact header {
+  #work header {
 	color: white;
   }
   
-  /* Style the contact box: slightly transparent white background with rounded corners */
-  #contact .box {
-	background: rgba(255, 255, 255, 0.8) !important; /* 80% opacity */
-	border-radius: 10px; /* Adjust the radius as needed */
-	padding: 2em; /* Adjust padding as needed */
-  }
-  
-  /* Ensure form input fields and textarea remain white */
-  #contact .box input[type="text"],
-  #contact .box input[type="email"],
-  #contact .box textarea {
-	background: #fff !important;
-	color: #000; /* Ensure text is legible */
-  }
-  
-  #work .content header h2,
-#work .content header p {
-  color: white !important;
+  /* Make Contact section header text white */
+#contact header {
+  color: white;
 }
+
+/* Style the entire contact form as a card */
+#contact form {
+	background: rgba(255, 255, 255, 0.85);  /* Slightly transparent white */
+	border-radius: 10px;                      /* Rounded corners */
+	padding: 1.5em;                           /* Padding around the content */
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);   /* Subtle shadow for depth */
+	margin-top: 1em;                          /* Optional: spacing above the form */
+  }
+  
+  /* Ensure text inputs and textarea inside the form have a solid white background */
+  #contact form input[type="text"],
+  #contact form input[type="email"],
+  #contact form textarea {
+	background: #ffffff;      /* Solid white */
+	border: 1px solid #ccc;   /* Light border */
+	border-radius: 5px;       /* Rounded corners for inputs */
+	padding: 0.5em;           /* Internal spacing */
+	color: #000;              /* Black text for readability */
+  }
+  
