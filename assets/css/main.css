@@ -2242,6 +2242,13 @@ input, select, textarea {
 		}
 
 /* Intro */
+#intro h2 {
+    font-family: 'Micro 5', sans-serif;
+    font-size: 10rem; /* You can adjust the font size to your liking */
+    color: white;
+    text-align: center; /* Centers the text */
+    text-transform: uppercase; /* Optional for uppercase styling */
+}
 
 #intro {
 	position: relative;
@@ -2250,6 +2257,9 @@ input, select, textarea {
 	overflow: hidden; /* Hides any overflow only in the intro section */
   }
   
+#intro .content {
+	color: white !important; /* Forces the text to be white */
+}
   .video-background {
 	position: absolute;
 	top: 0;
@@ -2382,53 +2392,44 @@ input, select, textarea {
 /* Work */
 #work {
 	position: relative;
-	width: 100%;
-	height: 100vh; /* Full viewport height */
-	overflow: hidden; /* Prevents scrolling */
-	display: flex;
-	justify-content: center; /* Centers the content horizontally */
-	align-items: center; /* Centers the content vertically */
+	overflow: hidden;
   }
   
-  .video-background {
+  #work .video-background { /* Corrected selector */
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
-	z-index: -1; /* Ensures the video stays behind the content */
+	z-index: -1;
   }
   
-  #background-video-work {
-	object-fit: cover; /* Makes the video cover the entire background */
+  #background-video-work { /* Corrected selector */
+	object-fit: cover;
 	width: 100%;
 	height: 100%;
+  }
+  
+  #work .content {
+	position: relative;
+	z-index: 1;
+	/* Add any additional styling for your content here */
   }
   
   #work::before {
 	content: "";
-	background: url("images/overlay.png");
+	background: url("images/overlay.png"); /* Assuming you want the overlay */
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
-	z-index: 0; /* Keeps the overlay above the video but below content */
+	z-index: 0;
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
   }
   
-  .content {
-	position: relative;
-	z-index: 1; /* Ensures the content is above the video and overlay */
-	color: rgb(0, 0, 0);
-	text-align: center;
-	padding: 20px;
-	width: 80%; /* Adjust content width */
-	max-width: 800px; /* Optional: limits the width of the content */
-  }
-
 /* Contact */
 
 	#contact {
