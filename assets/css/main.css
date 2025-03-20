@@ -2555,3 +2555,24 @@ input, select, textarea {
 	color: #000;              /* Black text for readability */
   }
   
+  /* Notification Popup Styles */
+  #notification {
+	position: fixed;
+	top: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	background: #98c593;  /* Your preferred background color */
+	color: #fff;
+	padding: 15px 20px;
+	border-radius: 5px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.5s ease;
+	z-index: 20000;  /* Ensure it's above other elements */
+}
+
+#notification.show {
+	opacity: 1;
+	pointer-events: auto;
+}
