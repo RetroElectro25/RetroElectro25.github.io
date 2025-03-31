@@ -2238,27 +2238,36 @@ input, select, textarea {
 	width: 100%;
 	height: 100vh; /* Full viewport height */
 	overflow: hidden; /* Hides any overflow only in the intro section */
-  }
+}
   
 #intro .content {
 	color: white !important; /* Forces the text to be white */
 }
-  .video-background {
+
+.video-background {
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
 	z-index: -1; /* Keeps the video behind the content */
-  }
+}
   
-  #background-video {
+#background-video {
 	object-fit: cover; /* Makes the video cover the entire background */
 	width: 100%;
 	height: 100%;
-  }
+}
+
+/* Disable pointer events for all videos in a video background */
+.video-background video {
+	min-width: 100%;
+	min-height: 100%;
+	object-fit: cover;
+	pointer-events: none;
+}
   
-  #intro::before {
+#intro::before {
 	content: "";
 	background: url("images/overlay.png");
 	position: absolute;
@@ -2270,7 +2279,7 @@ input, select, textarea {
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
-  }  
+}  
 
 /* One */
 #one {
@@ -2376,30 +2385,30 @@ input, select, textarea {
 #work {
 	position: relative;
 	overflow: hidden;
-  }
+}
   
-  #work .video-background { /* Corrected selector */
+#work .video-background { /* Corrected selector */
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
 	z-index: -1;
-  }
+}
   
-  #background-video-work { /* Corrected selector */
+#background-video-work { /* Corrected selector */
 	object-fit: cover;
 	width: 100%;
 	height: 100%;
-  }
+}
   
-  #work .content {
+#work .content {
 	position: relative;
 	z-index: 1;
 	/* Add any additional styling for your content here */
-  }
+}
   
-  #work::before {
+#work::before {
 	content: "";
 	background: url("images/overlay.png"); /* Assuming you want the overlay */
 	position: absolute;
@@ -2411,51 +2420,46 @@ input, select, textarea {
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
-  }
+}
   
 /* Contact */
+#contact {
+	overflow: hidden;
+	padding-bottom: 0;
+}
 
-	#contact {
-		overflow: hidden;
-		padding-bottom: 0;
+#contact .box {
+	-moz-transition: -moz-transform 1s ease;
+	-webkit-transition: -webkit-transform 1s ease;
+	-ms-transition: -ms-transform 1s ease;
+	transition: transform 1s ease;
+	-moz-transform: translateY(0);
+	-webkit-transform: translateY(0);
+	-ms-transform: translateY(0);
+	transform: translateY(0);
+	position: relative;
+}
+
+#contact.inactive .box {
+	-moz-transform: translateY(100%);
+	-webkit-transform: translateY(100%);
+	-ms-transform: translateY(100%);
+	transform: translateY(100%);
+}
+
+@media screen and (max-width: 736px) {
+	#contact .box {
+		padding: 1.5em 1.5em 2em 1.5em;
 	}
+}
 
-		#contact .box {
-			-moz-transition: -moz-transform 1s ease;
-			-webkit-transition: -webkit-transform 1s ease;
-			-ms-transition: -ms-transform 1s ease;
-			transition: transform 1s ease;
-			-moz-transform: translateY(0);
-			-webkit-transform: translateY(0);
-			-ms-transform: translateY(0);
-			transform: translateY(0);
-			position: relative;
-		}
+@media screen and (max-width: 480px) {
+	#contact .box {
+		padding: 1em 1em 2em 1em;
+	}
+}
 
-		#contact.inactive .box {
-			-moz-transform: translateY(100%);
-			-webkit-transform: translateY(100%);
-			-ms-transform: translateY(100%);
-			transform: translateY(100%);
-		}
-
-		@media screen and (max-width: 736px) {
-
-			#contact .box {
-				padding: 1.5em 1.5em 2em 1.5em;
-			}
-
-		}
-
-		@media screen and (max-width: 480px) {
-
-			#contact .box {
-				padding: 1em 1em 2em 1em;
-			}
-
-		}
-
-		/* Reduce text box padding */
+/* Reduce text box padding */
 .box.style2 {
     padding: 1.5em 1em; /* Adjusted for smaller margins */
 }
@@ -2474,46 +2478,48 @@ input, select, textarea {
 	height: 100%;
 	overflow: hidden;
 	z-index: -1;
-  }
-  
-  .video-background video {
+}
+
+/* This rule already includes the pointer-events fix */
+.video-background video {
 	min-width: 100%;
 	min-height: 100%;
 	object-fit: cover;
-  }
+	pointer-events: none;
+}
   
 /* Ensure Work and Contact sections fill at least the full viewport */
 #work, #contact {
 	position: relative;
 	min-height: 100vh;
 	overflow: hidden;
-  }
+}
   
-  /* Remove any potential overlay for testing (comment out if needed) */
-  #work::before,
-  #contact::before {
+/* Remove any potential overlay for testing (comment out if needed) */
+#work::before,
+#contact::before {
 	content: none;
-  }
-  
-  /* Ensure video background containers fill the section */
-  #work .video-background,
-  #contact .video-background {
+}
+
+/* Ensure video background containers fill the section */
+#work .video-background,
+#contact .video-background {
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
 	z-index: -1; /* behind content */
-  }
+}
   
-  /* Ensure the video elements cover the container fully */
-  #background-video-work,
-  #background-video-contact {
+/* Ensure the video elements cover the container fully */
+#background-video-work,
+#background-video-contact {
 	object-fit: cover;
 	width: 100%;
 	height: 100%;
 	display: block;
-  }
+}
 
 /* Remove any pseudo-element overlay for the Work and Contact sections */
 #work::before,
@@ -2522,15 +2528,17 @@ input, select, textarea {
   display: none !important;
 }
 
-#work, #contact, .main.style3.secondary {
+#work,
+#contact,
+.main.style3.secondary {
 	background: transparent !important;
-  }
+}
 
-  #work header {
+#work header {
 	color: white;
-  }
+}
   
-  /* Make Contact section header text white */
+/* Make Contact section header text white */
 #contact header {
   color: white;
 }
@@ -2542,18 +2550,18 @@ input, select, textarea {
 	padding: 1.5em;                           /* Padding around the content */
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);   /* Subtle shadow for depth */
 	margin-top: 1em;                          /* Optional: spacing above the form */
-  }
+}
   
-  /* Ensure text inputs and textarea inside the form have a solid white background */
-  #contact form input[type="text"],
-  #contact form input[type="email"],
-  #contact form textarea {
+/* Ensure text inputs and textarea inside the form have a solid white background */
+#contact form input[type="text"],
+#contact form input[type="email"],
+#contact form textarea {
 	background: #ffffff;      /* Solid white */
 	border: 1px solid #ccc;   /* Light border */
 	border-radius: 5px;       /* Rounded corners for inputs */
 	padding: 0.5em;           /* Internal spacing */
 	color: #000;              /* Black text for readability */
-  }
+}
   
 /* Notification Popup Styles */
 #notification {
@@ -2577,4 +2585,3 @@ input, select, textarea {
     opacity: 1;
     pointer-events: auto;
 }
-
